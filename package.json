@@ -1,8 +1,16 @@
 {
   "name": "schnick-schnack-shock",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "tinkertoe",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel --https",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.1",
+    "typescript": "^4.5.4"
+  }
 }
