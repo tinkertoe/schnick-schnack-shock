@@ -1,0 +1,1 @@
+{"mappings":"AAAA,KACA,QAAA,CACA,eACA,CAEA,MAEA,YAAA,CADA,WAEA","sources":["src/style.css"],"sourcesContent":["body {\n  margin: 0;\n  overflow: hidden;\n}\n\nvideo {\n  width: 100vw;\n  height: 100vh;\n}"],"names":[],"version":3,"file":"index.58fa6ef9.css.map"}
