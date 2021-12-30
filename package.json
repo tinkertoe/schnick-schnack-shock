@@ -7,10 +7,12 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel --https",
-    "build": "parcel build"
+    "build": "rm -rf dist && parcel build",
+    "deploy": "rm -rf dist && parcel build --public-url /schnick-schnack-shock && gh-pages -d dist"
   },
   "devDependencies": {
     "@types/ws": "^8.2.2",
+    "gh-pages": "^3.2.3",
     "parcel": "^2.0.1",
     "parcel-reporter-static-files-copy": "^1.3.4",
     "typescript": "^4.5.4"

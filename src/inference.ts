@@ -2,7 +2,7 @@ import { CustomMobileNet } from '@teachablemachine/image'
 import evaluate from './evaluate'
 import { Gesture } from './types'
 
-const minProbability = 0.95
+const minProbability = 0.99
 
 export default async (model: CustomMobileNet, video: HTMLVideoElement) => {
   // create canvas for frame splitting
@@ -46,6 +46,10 @@ export default async (model: CustomMobileNet, video: HTMLVideoElement) => {
 
   // does this free memory? hm?
   canvas.remove()
+
+  console.clear()
+  console.log(`left: ${leftPrediction} (${leftPredictionProbability})`)
+  console.log(`right: ${rightPrediction} (${rightPredictionProbability})`)
 
   if (leftPredictionProbability >= minProbability && rightPredictionProbability >= minProbability) {
     evaluate({

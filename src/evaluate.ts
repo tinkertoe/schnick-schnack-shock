@@ -1,8 +1,8 @@
 import shock from './shock'
 import { Predictions, Player } from './types'
 
-
 export default async (predictions: Predictions) => {
+
   const gestures = [predictions.left, predictions.right]
   const gesturePlayers: Player[] = ['left', 'right']
 
