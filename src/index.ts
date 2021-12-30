@@ -1,37 +1,17 @@
 import * as tf from '@tensorflow/tfjs'
-import * as tmImage from '@teachablemachine/image'
+import { load as loadModel } from '@teachablemachine/image'
+
+import camera from './camera'
+import inference from './inference'
+
+const inferenceDelay = 250
 
 window.onload = async () => {
 
-  const constrains: MediaStreamConstraints = {
-    audio: false,
-    video: {
-      width: 1920,
-      height: 1080,
-      frameRate: 60,
-    }
-  }
+  const video = await camera()
+  const model = await loadModel('./model/model.json', './model/metadata.json')
 
-  const userMedia = await navigator.mediaDevices.getUserMedia(constrains)
-
-  const video = document.getElementById('video') as HTMLVideoElement
-  video.width = userMedia.getVideoTracks()[0].getSettings().width
-  video.height = userMedia.getVideoTracks()[0].getSettings().height
-  video.srcObject = userMedia
-
-  const canvas = document.createElement('canvas')
-  canvas.width = video.width
-  canvas.height = video.height
-
-  const ctx = canvas.getContext('2d')
-
-  const model = await tmImage.loadFromFiles()
-  
-  
-  
-  const loop = setInterval(() => {
-    
-  }, 500)
-
-
+  setInterval(() => {
+    inference(model, video)
+  }, inferenceDelay)
 }
