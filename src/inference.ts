@@ -47,7 +47,6 @@ export default async (model: CustomMobileNet, video: HTMLVideoElement) => {
   // does this free memory? hm?
   canvas.remove()
 
-  console.clear()
   console.log(`left: ${leftPrediction} (${leftPredictionProbability})`)
   console.log(`right: ${rightPrediction} (${rightPredictionProbability})`)
 
